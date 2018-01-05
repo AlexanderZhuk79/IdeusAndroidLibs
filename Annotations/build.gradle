@@ -1,25 +1,17 @@
-apply plugin: 'com.android.library'
+apply plugin: 'java'
 apply plugin: 'com.jfrog.bintray'
 apply plugin: 'com.github.dcendents.android-maven'
 
-group = 'biz.ideus.mvvm' // Change this to match your package name
+group = 'biz.ideus.annotations' // Change this to match your package name
 version = '1.0.2' // Change this to match your version number
-
+/*
 android {
     compileSdkVersion 27
-    buildToolsVersion "27.0.1"
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 27
-        versionCode 2
-        versionName "1.0.2"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
     }
     buildTypes {
         release {
@@ -28,45 +20,41 @@ android {
         }
     }
 
-    dataBinding {
-        enabled = true
+    dexOptions {
+        preDexLibraries = false
+    }
+
+    lintOptions {
+        abortOnError false
     }
 }
 
-ext.supportVersion = '27.0.2'
+*/
+
 
 dependencies {
-    //compile fileTree(dir: 'libs', include: [' *.jar'])
-//    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
-//        exclude group: 'com.android.support', module: 'support-annotations'
-//    })
-    implementation "com.android.support:appcompat-v7:$supportVersion"
-    implementation "com.android.support:support-v4:$supportVersion"
-    implementation "com.android.support:support-annotations:$supportVersion"
-    testCompile 'junit:junit:4.12'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
+
+
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
 
 configurations {
     javadocDeps
 }
 
 
-dependencies {
-    implementation "com.android.support:support-annotations:$supportVersion"
-    javadocDeps "com.android.support:support-annotations:$supportVersion"
-    androidTestCompile 'junit:junit:4.12'
-}
-
 task generateSourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
+    from sourceSets.main.java.srcDirs
     classifier 'sources'
 }
 
 task generateJavadocs(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
+    source = sourceSets.main.java.srcDirs
     //source = android.sourceSets.main.java    //allJava
-    classpath += project.files(android.getBootClasspath()
-            .join(File.pathSeparator))
+//    classpath += project.files(getBootClasspath().join(File.pathSeparator))
     classpath += configurations.javadocDeps
     failOnError false
 }
@@ -93,9 +81,8 @@ bintray {
         name = 'MyMVVM' // the name of the package in BinTray
 
         version {
-            name = 'mvvm' // the name of your library project
+            name = 'Annotations' // the name of your library project
             desc = 'This is the 2 version'
-//            released  = "2016-12-21 15:27:12.004"
             vcsTag = '1.0.2' // the version
         }
 

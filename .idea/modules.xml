@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Annotations/Annotations.iml" filepath="$PROJECT_DIR$/Annotations/Annotations.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AnnotationsProcessing/AnnotationsProcessing.iml" filepath="$PROJECT_DIR$/AnnotationsProcessing/AnnotationsProcessing.iml" />
       <module fileurl="file://$PROJECT_DIR$/IdeusAndroidLibs.iml" filepath="$PROJECT_DIR$/IdeusAndroidLibs.iml" />
       <module fileurl="file://$PROJECT_DIR$/mvvm/mvvm.iml" filepath="$PROJECT_DIR$/mvvm/mvvm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sample/sample.iml" filepath="$PROJECT_DIR$/sample/sample.iml" />
     </modules>
   </component>
 </project>

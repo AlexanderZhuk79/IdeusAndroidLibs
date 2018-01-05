@@ -1,0 +1,40 @@
+apply plugin: 'java'
+apply plugin: 'com.github.dcendents.android-maven'
+
+group = 'biz.ideus.annotations' // Change this to match your package name
+version = '1.0.2' // Change this to match your version number
+/*
+android {
+    compileSdkVersion 27
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 27
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dexOptions {
+        preDexLibraries = false
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+*/
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':Annotations')
+    implementation 'com.google.auto.service:auto-service:1.0-rc2'
+    implementation 'com.squareup:javapoet:1.8.0'
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
