@@ -1,0 +1,104 @@
+Configuration 'testCompile' in project ':mvvm' is deprecated. Use 'testImplementation' instead.
+Configuration 'androidTestCompile' in project ':mvvm' is deprecated. Use 'androidTestImplementation' instead.
+
+------------------------------------------------------------
+Root project
+------------------------------------------------------------
+
+No configurations
+
+------------------------------------------------------------
+Project :AnnotationsProcessing
+------------------------------------------------------------
+
+api - API dependencies for source set 'main'. (n)
+No dependencies
+
+apiElements - API elements for main. (n)
+No dependencies
+
+archives - Configuration for archive artifacts.
+No dependencies
+
+compile - Dependencies for source set 'main' (deprecated, use 'implementation ' instead).
+No dependencies
+
+compileClasspath - Compile classpath for source set 'main'.
++--- com.google.auto.service:auto-service:1.0-rc2
+|    +--- com.google.auto:auto-common:0.3
+|    |    \--- com.google.guava:guava:18.0
+|    \--- com.google.guava:guava:18.0
++--- com.squareup:javapoet:1.8.0
+\--- project :Annotations
+
+compileOnly - Compile only dependencies for source set 'main'.
+No dependencies
+
+default - Configuration for default artifacts.
++--- com.google.auto.service:auto-service:1.0-rc2
+|    +--- com.google.auto:auto-common:0.3
+|    |    \--- com.google.guava:guava:18.0
+|    \--- com.google.guava:guava:18.0
++--- com.squareup:javapoet:1.8.0
+\--- project :Annotations
+
+implementation - Implementation only dependencies for source set 'main'. (n)
++--- unspecified (n)
++--- com.google.auto.service:auto-service:1.0-rc2 (n)
++--- com.squareup:javapoet:1.8.0 (n)
+\--- project Annotations (n)
+
+javadocDeps
+No dependencies
+
+runtime - Runtime dependencies for source set 'main' (deprecated, use 'runtimeOnly ' instead).
+No dependencies
+
+runtimeClasspath - Runtime classpath of source set 'main'.
++--- com.google.auto.service:auto-service:1.0-rc2
+|    +--- com.google.auto:auto-common:0.3
+|    |    \--- com.google.guava:guava:18.0
+|    \--- com.google.guava:guava:18.0
++--- com.squareup:javapoet:1.8.0
+\--- project :Annotations
+
+runtimeElements - Elements of runtime for main. (n)
+No dependencies
+
+runtimeOnly - Runtime only dependencies for source set 'main'. (n)
+No dependencies
+
+testCompile - Dependencies for source set 'test' (deprecated, use 'testImplementation ' instead).
+No dependencies
+
+testCompileClasspath - Compile classpath for source set 'test'.
++--- com.google.auto.service:auto-service:1.0-rc2
+|    +--- com.google.auto:auto-common:0.3
+|    |    \--- com.google.guava:guava:18.0
+|    \--- com.google.guava:guava:18.0
++--- com.squareup:javapoet:1.8.0
+\--- project :Annotations
+
+testCompileOnly - Compile only dependencies for source set 'test'.
+No dependencies
+
+testImplementation - Implementation only dependencies for source set 'test'. (n)
+No dependencies
+
+testRuntime - Runtime dependencies for source set 'test' (deprecated, use 'testRuntimeOnly ' instead).
+No dependencies
+
+testRuntimeClasspath - Runtime classpath of source set 'test'.
++--- com.google.auto.service:auto-service:1.0-rc2
+|    +--- com.google.auto:auto-common:0.3
+|    |    \--- com.google.guava:guava:18.0
+|    \--- com.google.guava:guava:18.0
++--- com.squareup:javapoet:1.8.0
+\--- project :Annotations
+
+testRuntimeOnly - Runtime only dependencies for source set 'test'. (n)
+No dependencies
+
+(*) - dependencies omitted (listed previously)
+
+(n) - Not resolved (configuration is not meant to be resolved)

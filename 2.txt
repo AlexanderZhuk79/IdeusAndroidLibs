@@ -1,0 +1,6 @@
+Configuration 'testCompile' in project ':mvvm' is deprecated. Use 'testImplementation' instead.
+Configuration 'androidTestCompile' in project ':mvvm' is deprecated. Use 'androidTestImplementation' instead.
+Observed package id 'add-ons;addon-google_apis-google-19' in inconsistent location 'C:\Users\user\AppData\Local\Android\sdk\add-ons\addon-google_apis-google-19-1' (Expected 'C:\Users\user\AppData\Local\Android\sdk\add-ons\addon-google_apis-google-19')
+Already observed package id 'add-ons;addon-google_apis-google-19' in 'C:\Users\user\AppData\Local\Android\sdk\add-ons\addon-google_apis-google-19'. Skipping duplicate at 'C:\Users\user\AppData\Local\Android\sdk\add-ons\addon-google_apis-google-19-1'
+Observed package id 'add-ons;addon-google_apis-google-19' in inconsistent location 'C:\Users\user\AppData\Local\Android\sdk\add-ons\addon-google_apis-google-19-1' (Expected 'C:\Users\user\AppData\Local\Android\sdk\add-ons\addon-google_apis-google-19')
+Already observed package id 'add-ons;addon-google_apis-google-19' in 'C:\Users\user\AppData\Local\Android\sdk\add-ons\addon-google_apis-google-19'. Skipping duplicate at 'C:\Users\user\AppData\Local\Android\sdk\add-ons\addon-google_apis-google-19-1'

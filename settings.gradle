@@ -1,1 +1,1 @@
-include ':mvvm', ':sample', ':Annotations', ':AnnotationsProcessing'
+include ':mvvm', ':sample', ':AnnotationsProcessing'

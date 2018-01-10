@@ -27,10 +27,10 @@ import javax.lang.model.element.TypeElement;
 import javax.lang.model.element.VariableElement;
 import javax.lang.model.util.Elements;
 import javax.lang.model.util.Types;
-import biz.ideus.annotations.State;
 
-@SupportedAnnotationTypes("biz.ideus.annotations.State")
-@SupportedSourceVersion(SourceVersion.RELEASE_7)
+
+@SupportedAnnotationTypes("biz.ideus.annotationsprocessing.State")
+@SupportedSourceVersion(SourceVersion.RELEASE_8)
 @AutoService(javax.annotation.processing.Processor.class)
 public class Processor extends AbstractProcessor {
     private Elements elementUtils;

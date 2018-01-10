@@ -1,40 +1,90 @@
-apply plugin: 'java'
-apply plugin: 'com.github.dcendents.android-maven'
-
-group = 'biz.ideus.annotations' // Change this to match your package name
-version = '1.0.2' // Change this to match your version number
-/*
-android {
-    compileSdkVersion 27
-    buildToolsVersion rootProject.ext.buildToolsVersion
-
-    defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 27
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-
-    dexOptions {
-        preDexLibraries = false
-    }
-
-    lintOptions {
-        abortOnError false
-    }
+plugins {
+    id 'com.github.johnrengelman.shadow' version '2.0.0'
 }
-*/
+apply plugin: 'java'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.github.johnrengelman.shadow'
+
+group = 'biz.ideus.annotationsprocessing' // Change this to match your package name
+version = '1.0.11' // Change this to match your version number
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(':Annotations')
     implementation 'com.google.auto.service:auto-service:1.0-rc2'
     implementation 'com.squareup:javapoet:1.8.0'
+   // implementation project(':Annotations')
+
 }
 
-sourceCompatibility = "1.7"
-targetCompatibility = "1.7"
+shadowJar {
+//    configurations = [project.configurations.compile]
+    dependencies {
+        include(dependency('com.squareup:javapoet:.*'))
+ //       include(dependency(':Annotations'))
+    }
+    relocate 'com.squareup', 'biz.ideus.annotationsprocessing.com.squareup'
+    //relocate 'biz.ideus.annotations', 'biz.ideus.annotationsprocessing.biz.ideus.annotations'
+    archiveName "${project.name}-${version}.jar"
+}
+
+jar.finalizedBy shadowJar
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+configurations {
+    javadocDeps
+}
+
+
+task generateSourcesJar(type: Jar) {
+    from sourceSets.main.allSource
+    classifier 'sources'
+}
+
+task generateJavadocs(type: Javadoc) {
+    source = sourceSets.main.java.srcDirs
+    //source = android.sourceSets.main.java    //allJava
+    //classpath += project.files(getBootClasspath().join(File.pathSeparator))
+    classpath += configurations.javadocDeps
+    failOnError false
+}
+
+
+
+task generateJavadocsJar(type: Jar) {
+    from generateJavadocs.destinationDir
+    classifier 'javadoc'
+}
+
+generateJavadocsJar.dependsOn generateJavadocs
+
+artifacts {
+    archives generateJavadocsJar
+    archives generateSourcesJar
+}
+
+bintray {
+    user = 'mezozoy'
+    key = 'ce0856025223b24ee4b7883f7fa57c218f9b8697'
+    pkg {
+        repo = 'MyLib'
+        name = 'AnnotationsProcessing' // the name of the package in BinTray
+
+        version {
+            name = 'AnnotationsProcessing' // the name of your library project
+            desc = 'This is the 10 version'
+            vcsTag = '1.0.11' // the version
+        }
+
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/Mezozoy/MyLib.git' // your GitHub repo
+        websiteUrl = 'https://github.com/Mezozoy/MyLib' // your website or whatever has documentation
+    }
+    configurations = ['archives']
+}
+
+
+

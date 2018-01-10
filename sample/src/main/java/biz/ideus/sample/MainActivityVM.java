@@ -7,7 +7,7 @@ import android.util.Log;
 
 import java.util.Random;
 
-import biz.ideus.annotations.State;
+import biz.ideus.annotationsprocessing.State;
 import biz.ideus.mvvm.AbstractViewModel;
 
 /**
@@ -16,9 +16,10 @@ import biz.ideus.mvvm.AbstractViewModel;
 
 public class MainActivityVM extends AbstractViewModel<MainActivityIView> {
     private static String TAG = "MainActivityVM";
-    @State String testString;
-    @State Integer testInteger;
-    @State int testInt;
+    @State
+    String testString;
+    Integer testInteger;
+    int testInt;
 
     @Override
     public void onCreate(@Nullable Bundle arguments, @Nullable Bundle savedInstanceState) {
