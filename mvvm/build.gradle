@@ -36,10 +36,6 @@ android {
 ext.supportVersion = '27.0.2'
 
 dependencies {
-    //compile fileTree(dir: 'libs', include: [' *.jar'])
-//    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
-//        exclude group: 'com.android.support', module: 'support-annotations'
-//    })
     implementation "com.android.support:appcompat-v7:$supportVersion"
     implementation "com.android.support:support-v4:$supportVersion"
     implementation "com.android.support:support-annotations:$supportVersion"
@@ -52,7 +48,11 @@ configurations {
 
 
 dependencies {
+    implementation "com.android.support:appcompat-v7:$supportVersion"
+    implementation "com.android.support:support-v4:$supportVersion"
     implementation "com.android.support:support-annotations:$supportVersion"
+    javadocDeps "com.android.support:appcompat-v7:$supportVersion"
+    javadocDeps "com.android.support:support-v4:$supportVersion"
     javadocDeps "com.android.support:support-annotations:$supportVersion"
     androidTestCompile 'junit:junit:4.12'
 }
@@ -64,10 +64,9 @@ task generateSourcesJar(type: Jar) {
 
 task generateJavadocs(type: Javadoc) {
     source = android.sourceSets.main.java.srcDirs
-    //source = android.sourceSets.main.java    //allJava
     classpath += project.files(android.getBootClasspath()
             .join(File.pathSeparator))
-    classpath += configurations.javadocDeps
+    classpath += configurations.compile
     failOnError false
 }
 
